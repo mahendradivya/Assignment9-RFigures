@@ -9,7 +9,7 @@ data(diamonds)
 
 #Exercise 1
 #Subset one - diamonds that only of 'ideal quality'
-#Subset two - contains rest excluding color J
+#Subset two - contains rest excluding color J - meaning everything except ideal quality and color J
 diamonds.ideal <- subset(diamonds, cut=="Ideal")
 diamonds.exJ <- subset(diamonds, cut!="Ideal" & color!="J")
 
@@ -21,16 +21,13 @@ median_clarity <- aggregate(diamonds.ideal$carat, by=list(diamonds.ideal$clarity
 names(mean_clarity) <- c("clarity", "carat")
 names(median_clarity) <- c("clarity", "carat")
 
-
-#Excercise 3 - Sort the data Frame according to carat
+#Excercise 3 - Sort the data frame according to carat
 mean_clarity_sort <- mean_clarity[order(mean_clarity$carat),]
-
 
 #Exercise 4 - Merge the two data frames from exercise II
 clarity.mean.median <- merge(mean_clarity, median_clarity, by.x="clarity", by.y="clarity")
 names(clarity.mean.median) <- c("Clarity", "Mean Carat", "Median Carat")
 
-######
 #Exercise 5 - create scatterplot of mean(y) vs. median(x) carat using merged data from exercise IV with standard confidence intervals
 x=median_clarity$carat
 y=mean_clarity$carat
