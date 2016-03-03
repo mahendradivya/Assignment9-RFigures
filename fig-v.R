@@ -35,7 +35,7 @@ names(clarity.mean.median) <- c("Clarity", "Mean Carat", "Median Carat")
 x=median_clarity$carat
 y=mean_clarity$carat
 
-pdf("fig_v.pdf") #name of the pdf file for output
+pdf("fig_v.pdf", height = 7, width = 7) #name of the pdf file for output
 #lattice plot
 scatter.carat.lattice <- xyplot(y ~ x, 
                                 data=clarity.mean.median,
